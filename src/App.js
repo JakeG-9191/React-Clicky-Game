@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import imageCards from "./components/imageCards";
+import images from "./images.json";
 import './App.css';
 
 function App() {
