@@ -1,19 +1,19 @@
 import React from "react";
 import "./style.css";
 
-class ImageCards extends React.Component {
+function ImageCards(props) {
 
-  state = {
-    count: 0
-  };
+  // state = {
+  //   count: 0
+  // };
 
-  userScore = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
+  // userScore = () => {
+  //   this.setState({ count: this.state.count + 1 });
+  // };
 
-  userReset = () => {
-    this.setState({ count: 0 });
-  };
+  // userReset = () => {
+  //   this.setState({ count: 0 });
+  // };
 
   return (
     <div className="card">
@@ -22,7 +22,7 @@ class ImageCards extends React.Component {
       </div>
       <div className="content">
             <strong>Click Me!</strong>
-            <button className="btn btn-primary" onClick={this.userScore}>Test</button>
+            {/* <button className="btn btn-primary" onClick={this.userScore}>Test</button> */}
       </div>
     </div>
   )
