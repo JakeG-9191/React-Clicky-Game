@@ -30,9 +30,9 @@ class App extends React.Component {
       if (x.id === id) {
         if (images[i].count === 0) {
           images[i].count = images[i].count + 1;
-          this.setState({ score: this.state.score + 1 }, function(){console.log(this.state.score)})
+          this.setState({ score: this.state.score + 1 }, function(){console.log(this.state.score)});
           this.state.images.sort(() => Math.random() - 0.5)
-          return
+          return true;
         } else {
           this.endGame()
         }
@@ -50,8 +50,8 @@ class App extends React.Component {
           {this.state.images.map(gamePlay => (
             <ImageCards
               scoreCount={this.scoreCount}
-              key={gamePlay.id}
               id={gamePlay.id}
+              key={gamePlay.id}
               image={gamePlay.image}
             />
           ))}
