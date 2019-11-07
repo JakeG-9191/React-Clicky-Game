@@ -2,27 +2,15 @@ import React from "react";
 import "./style.css";
 
 function ImageCards(props) {
-
-  // state = {
-  //   count: 0
-  // };
-
-  // userScore = () => {
-  //   this.setState({ count: this.state.count + 1 });
-  // };
-
-  // userReset = () => {
-  //   this.setState({ count: 0 });
-  // };
+  console.log(props)
 
   return (
-    <div className="card">
+    <div className="card" onClick={() => props.scoreCount(props.id)}>
       <div className="img-container">
         <img alt={props.name} src={props.image} />
       </div>
       <div className="content">
-            <strong>Click Me!</strong>
-            {/* <button className="btn btn-primary" onClick={this.userScore}>Test</button> */}
+        <span>Click Me!</span>
       </div>
     </div>
   )

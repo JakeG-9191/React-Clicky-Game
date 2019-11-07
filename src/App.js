@@ -1,7 +1,7 @@
 import React from 'react';
-// import logo from './logo.svg';
-import Wrapper from "./components/wrapper"
 import ImageCards from "./components/imageCards";
+import Wrapper from "./components/wrapper";
+import Head from "./components/header"
 import images from "./images.json";
 import './App.css';
 
@@ -9,31 +9,55 @@ class App extends React.Component {
 
   state = {
     images,
-    count: 0
+    score: 0,
+    highscore: 0
   };
 
-  userScore = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
+  endGame = () => {
+    if (this.state.score > this.state.highscore) {
+      this.setState({ highscore: this.state.score })
+    }
+    this.state.images.forEach(point => {
+      point.count = 0;
+    });
+    alert("Game Over \nScore: ${this.state.score}")
+    this.setState({ score: 0 })
+    return
+  }
 
-  userReset = () => {
-    this.setState({ count: 0 });
-  };
+  scoreCount = (id) => {
+    this.state.images.find((x, i) => {
+      if (x.id === id) {
+        if (images[i].count === 0) {
+          images[i].count = images[i].count + 1;
+          this.setState({ score: this.state.score + 1 })
+          this.state.images.sort(() => Math.random() + 1)
+        }
+        return
+      } else {
+        this.endGame()
+      }
+    })
+  }
 
   render() {
     return (
       <Wrapper>
         <h1 className="title">Clicky Game - React</h1>
-        <h2 className="userScore">Your Score: {this.state.count}</h2>
+        <Head>
+          Current Score: {this.state.score}
+          High Score: {this.state.highscore}
+        </Head>
         {this.state.images.map(gamePlay => (
-        <ImageCards
-          key={gamePlay.id}
-          id={gamePlay.id}
-          name={gamePlay.name}
-          image={gamePlay.image}
-          occupation={gamePlay.occupation}
-          location={gamePlay.location}
-        />
+          <ImageCards
+            scoreCount={this.scoreCount}
+            key={gamePlay.id}
+            id={gamePlay.id}
+            // name={gamePlay.name}
+            image={gamePlay.image}
+          // occupation={gamePlay.occupation}
+          // location={gamePlay.location}
+          />
         ))}
       </Wrapper>
     )
@@ -41,23 +65,3 @@ class App extends React.Component {
 };
 
 export default App;
-
-// handleIncrement = () => {
-//   this.setState({ count: this.state.count + 1 });
-// };
-
-// render() {
-//   return (
-//     <div className="card text-center">
-//       <div className="card-header bg-primary text-white">
-//         Click Counter!
-//       </div>
-//       <div className="card-body">
-//         <p className="card-text">Click Count: {this.state.count}</p>
-//         <button className="btn btn-primary" onClick={this.handleIncrement}>
-//           Increment
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
