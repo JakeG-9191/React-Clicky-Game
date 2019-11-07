@@ -32,36 +32,35 @@ class App extends React.Component {
           images[i].count = images[i].count + 1;
           this.setState({ score: this.state.score + 1 })
           this.state.images.sort(() => Math.random() + 1)
+          return
+        } else {
+          this.endGame()
         }
-        return
-      } else {
-        this.endGame()
       }
-    })
-  }
+    })}
 
-  render() {
-    return (
-      <Wrapper>
-        <h1 className="title">Clicky Game - React</h1>
-        <Head>
-          Current Score: {this.state.score}
-          High Score: {this.state.highscore}
-        </Head>
-        {this.state.images.map(gamePlay => (
-          <ImageCards
-            scoreCount={this.scoreCount}
-            key={gamePlay.id}
-            id={gamePlay.id}
-            // name={gamePlay.name}
-            image={gamePlay.image}
-          // occupation={gamePlay.occupation}
-          // location={gamePlay.location}
-          />
-        ))}
-      </Wrapper>
-    )
-  }
-};
+    render() {
+      return (
+        <Wrapper>
+          <h1 className="title">Clicky Game - React</h1>
+          <Head>
+            Current Score: {this.state.score}
+            High Score: {this.state.highscore}
+          </Head>
+          {this.state.images.map(gamePlay => (
+            <ImageCards
+              scoreCount={this.scoreCount}
+              key={gamePlay.id}
+              id={gamePlay.id}
+              // name={gamePlay.name}
+              image={gamePlay.image}
+            // occupation={gamePlay.occupation}
+            // location={gamePlay.location}
+            />
+          ))}
+        </Wrapper>
+      )
+    }
+  };
 
-export default App;
+  export default App;
