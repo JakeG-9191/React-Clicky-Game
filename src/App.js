@@ -20,7 +20,7 @@ class App extends React.Component {
     this.state.images.forEach(point => {
       point.count = 0;
     });
-    $('#myModal').modal('toggle')
+    // ('#myModal').modal('toggle')
     alert(`Game Over \nScore: ${this.state.score}`)
     this.setState({ score: 0 })
     return
@@ -58,7 +58,7 @@ class App extends React.Component {
           />
         ))}
         <div>
-<div class="myModal modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="myModal modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">

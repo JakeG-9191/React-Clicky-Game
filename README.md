@@ -1,3 +1,24 @@
+## Application Details
+My Clicky Game is a React application that acts as a memory game. The game theme is based on some of my favorite shows.
+
+The application starts by bringing up 15 different cards, each with its own show, and shows the user current score and high score (currently there is no data persistence so this resets upon page reload). The user gains a point for each card they click on, the object is to click all 15 cards to achieve the maximum amount of points available. 
+
+To add to the complexity of the game, for every click of a card, the cards are all randomized.
+
+## Other Information
+Created with Create-React-App, see additional information below if issues are encountered.
+
+## Technologies Used
+React
+Bootstrap
+
+## Known Bugs / Future Improvements
+Currently using an alert to notify the user when the game is over, intend to replace this with more user friendly component such as modal.
+
+Currenlty there is no "winning" of the game built in, i.e. if the user correctly gets all 15 cards without duplicating a guess then they are forced to choose a card that they have already guessed, thus ending the game. Intend to build in logic that shows the user won if they achieve this instead.
+
+
+############################################################### 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
