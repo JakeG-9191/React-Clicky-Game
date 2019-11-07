@@ -20,7 +20,7 @@ class App extends React.Component {
     this.state.images.forEach(point => {
       point.count = 0;
     });
-    alert("Game Over \nScore: ${this.state.score}")
+    alert(`Game Over \nScore: ${this.state.score}`)
     this.setState({ score: 0 })
     return
   }
@@ -30,8 +30,8 @@ class App extends React.Component {
       if (x.id === id) {
         if (images[i].count === 0) {
           images[i].count = images[i].count + 1;
-          this.setState({ score: this.state.score + 1 })
-          this.state.images.sort(() => Math.random() + 1)
+          this.setState({ score: this.state.score + 1 }, function(){console.log(this.state.score)})
+          this.state.images.sort(() => Math.random() - 0.5)
           return
         } else {
           this.endGame()
@@ -44,18 +44,15 @@ class App extends React.Component {
         <Wrapper>
           <h1 className="title">Clicky Game - React</h1>
           <Head>
-            Current Score: {this.state.score}
-            High Score: {this.state.highscore}
+            <h3>Current Score: {this.state.score}</h3>
+            <h3>High Score: {this.state.highscore}</h3>
           </Head>
           {this.state.images.map(gamePlay => (
             <ImageCards
               scoreCount={this.scoreCount}
               key={gamePlay.id}
               id={gamePlay.id}
-              // name={gamePlay.name}
               image={gamePlay.image}
-            // occupation={gamePlay.occupation}
-            // location={gamePlay.location}
             />
           ))}
         </Wrapper>

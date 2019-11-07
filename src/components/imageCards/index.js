@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 function ImageCards(props) {
-  console.log(props)
 
   return (
     <div className="card" onClick={() => props.scoreCount(props.id)}>
