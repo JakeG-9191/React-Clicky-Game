@@ -42,7 +42,7 @@ class App extends React.Component {
     render() {
       return (
         <Wrapper>
-          <h1 className="title">Clicky Game - React</h1>
+          <h1 className="title">React Clicky Game - Best Shows Ever Edition</h1>
           <Head>
             <h3>Current Score: {this.state.score}</h3>
             <h3>High Score: {this.state.highscore}</h3>
